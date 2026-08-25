@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color tokens */
+  --color-ink: #0f172a;
+  --color-ink-light: #1e293b;
+  --color-cloud: #f8fafc;
+  --color-cloud-dim: #eef2f6;
+  --color-teal: #14b8a6;
+  --color-teal-dark: #0d9488;
+  --color-violet: #7c3aed;
+  --color-violet-light: #a78bfa;
+  --color-coral: #fb7185;
+  --color-coral-dark: #e11d48;
+  --color-amber: #f59e0b;
+
+  /* Fonts */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-cloud);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Signature element: animated pulse line */
+@keyframes pulse-flow {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.pulse-line path {
+  stroke-dasharray: 6 4;
+  animation: pulse-flow 1.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-line path {
+    animation: none;
+  }
+}
