@@ -19,7 +19,9 @@ export default function Login() {
       await login(email, password);
       navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed. Please try again.");
+      setError(
+        err.response?.data?.message || "Login failed. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
@@ -35,12 +37,18 @@ export default function Login() {
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h1 className="text-xl font-display font-semibold text-ink mb-1">Welcome back</h1>
-          <p className="text-sm text-slate-500 mb-6">Sign in to your compliance dashboard</p>
+          <h1 className="text-xl font-display font-semibold text-ink mb-1">
+            Welcome back
+          </h1>
+          <p className="text-sm text-slate-500 mb-6">
+            Sign in to your compliance dashboard
+          </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                Email
+              </label>
               <input
                 type="email"
                 required
@@ -51,7 +59,9 @@ export default function Login() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                Password
+              </label>
               <input
                 type="password"
                 required
@@ -63,7 +73,9 @@ export default function Login() {
             </div>
 
             {error && (
-              <p className="text-sm text-coral-dark bg-coral/10 rounded-lg px-3 py-2">{error}</p>
+              <p className="text-sm text-coral-dark bg-coral/10 rounded-lg px-3 py-2">
+                {error}
+              </p>
             )}
 
             <button
@@ -74,10 +86,6 @@ export default function Login() {
               {loading ? "Signing in..." : "Sign in"}
             </button>
           </form>
-
-          <p className="text-xs text-slate-400 mt-6 text-center">
-            Demo: admin@regpulse.com / admin123
-          </p>
         </div>
       </div>
     </div>
